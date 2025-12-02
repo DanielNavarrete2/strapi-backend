@@ -430,26 +430,35 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiTestTest extends Struct.CollectionTypeSchema {
-  collectionName: 'tests';
+export interface ApiNoticiascontenidoNoticiascontenido
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'noticiascontenidos';
   info: {
-    displayName: 'test';
-    pluralName: 'tests';
-    singularName: 'test';
+    displayName: 'noticiascontenido';
+    pluralName: 'noticiascontenidos';
+    singularName: 'noticiascontenido';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
+    categoria: Schema.Attribute.String;
+    contenido: Schema.Attribute.Text;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    descripcion: Schema.Attribute.Text;
+    fecha: Schema.Attribute.Date;
+    imagen: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    key: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::test.test'> &
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::noticiascontenido.noticiascontenido'
+    > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    title: Schema.Attribute.String;
+    resumen: Schema.Attribute.Text;
+    titulo: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -966,7 +975,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
-      'api::test.test': ApiTestTest;
+      'api::noticiascontenido.noticiascontenido': ApiNoticiascontenidoNoticiascontenido;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
