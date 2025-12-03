@@ -26,6 +26,66 @@
       "allowedTypes": [
         "images"
       ]
+    },
+    "subtitle2": {
+      "type": "string"
+    },
+    "parrafo2": {
+      "type": "text"
+    },
+    "boton2": {
+      "type": "string"
+    },
+    "imagen2": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "subtitle3": {
+      "type": "string"
+    },
+    "slider1": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "slider2": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "slider3": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "tituloslider1": {
+      "type": "string"
+    },
+    "tituloslider2": {
+      "type": "string"
+    },
+    "tituloslider3": {
+      "type": "string"
+    },
+    "subtitleslider1": {
+      "type": "string"
+    },
+    "subtitleslider2": {
+      "type": "string"
+    },
+    "subtitleslider3": {
+      "type": "string"
     }
   }
 }
