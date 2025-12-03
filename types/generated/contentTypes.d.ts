@@ -500,6 +500,41 @@ export interface ApiNoticiaNoticia extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiNoticiascontenidoNoticiascontenido
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'noticiascontenidos';
+  info: {
+    displayName: 'noticiascontenido';
+    pluralName: 'noticiascontenidos';
+    singularName: 'noticiascontenido';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    categoria: Schema.Attribute.String;
+    contenido: Schema.Attribute.Text;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    fecha: Schema.Attribute.Date;
+    imagen: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    key: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::noticiascontenido.noticiascontenido'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    resumen: Schema.Attribute.Text;
+    titulo: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiPilarePilare extends Struct.CollectionTypeSchema {
   collectionName: 'pilares';
   info: {
@@ -511,14 +546,14 @@ export interface ApiPilarePilare extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    areas: Schema.Attribute.Component<'lista.areas', true>;
-    bajada: Schema.Attribute.String;
+    areas: Schema.Attribute.Component<'bloques.area-detalle', true>;
+    bajada: Schema.Attribute.Text;
     color: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     descripcion: Schema.Attribute.Text;
-    image: Schema.Attribute.Media<'files' | 'images'>;
+    imagen: Schema.Attribute.Media<'images'>;
     key: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -1046,6 +1081,7 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::home.home': ApiHomeHome;
       'api::noticia.noticia': ApiNoticiaNoticia;
+      'api::noticiascontenido.noticiascontenido': ApiNoticiascontenidoNoticiascontenido;
       'api::pilare.pilare': ApiPilarePilare;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
