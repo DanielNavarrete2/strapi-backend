@@ -441,16 +441,30 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    boton2: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     imagen: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    imagen2: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::home.home'> &
       Schema.Attribute.Private;
+    parrafo2: Schema.Attribute.Text;
     publishedAt: Schema.Attribute.DateTime;
+    slider1: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    slider2: Schema.Attribute.Media<'images'>;
+    slider3: Schema.Attribute.Media<'images'>;
     subtitle: Schema.Attribute.String & Schema.Attribute.Required;
+    subtitle2: Schema.Attribute.String;
+    subtitle3: Schema.Attribute.String;
+    subtitleslider1: Schema.Attribute.String;
+    subtitleslider2: Schema.Attribute.String;
+    subtitleslider3: Schema.Attribute.String;
     title: Schema.Attribute.String & Schema.Attribute.Required;
+    tituloslider1: Schema.Attribute.String;
+    tituloslider2: Schema.Attribute.String;
+    tituloslider3: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -486,34 +500,33 @@ export interface ApiNoticiaNoticia extends Struct.SingleTypeSchema {
   };
 }
 
-export interface ApiNoticiascontenidoNoticiascontenido
-  extends Struct.CollectionTypeSchema {
-  collectionName: 'noticiascontenidos';
+export interface ApiPilarePilare extends Struct.CollectionTypeSchema {
+  collectionName: 'pilares';
   info: {
-    displayName: 'noticiascontenido';
-    pluralName: 'noticiascontenidos';
-    singularName: 'noticiascontenido';
+    displayName: 'pilare';
+    pluralName: 'pilares';
+    singularName: 'pilare';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    categoria: Schema.Attribute.String;
-    contenido: Schema.Attribute.Text;
+    areas: Schema.Attribute.Component<'lista.areas', true>;
+    bajada: Schema.Attribute.String;
+    color: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    fecha: Schema.Attribute.Date;
-    imagen: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    descripcion: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'files' | 'images'>;
     key: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::noticiascontenido.noticiascontenido'
+      'api::pilare.pilare'
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    resumen: Schema.Attribute.Text;
     titulo: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1033,7 +1046,7 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::home.home': ApiHomeHome;
       'api::noticia.noticia': ApiNoticiaNoticia;
-      'api::noticiascontenido.noticiascontenido': ApiNoticiascontenidoNoticiascontenido;
+      'api::pilare.pilare': ApiPilarePilare;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
