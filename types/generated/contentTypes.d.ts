@@ -502,40 +502,11 @@ export interface ApiNavmenuNavmenu extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiNoticiaNoticia extends Struct.SingleTypeSchema {
-  collectionName: 'noticias';
-  info: {
-    displayName: 'noticia';
-    pluralName: 'noticias';
-    singularName: 'noticia';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::noticia.noticia'
-    > &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    subtitulo: Schema.Attribute.String;
-    title: Schema.Attribute.String;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
 export interface ApiNoticiascontenidoNoticiascontenido
   extends Struct.CollectionTypeSchema {
   collectionName: 'noticiascontenidos';
   info: {
-    displayName: 'noticiascontenido';
+    displayName: 'noticia';
     pluralName: 'noticiascontenidos';
     singularName: 'noticiascontenido';
   };
@@ -543,6 +514,7 @@ export interface ApiNoticiascontenidoNoticiascontenido
     draftAndPublish: true;
   };
   attributes: {
+    boton: Schema.Attribute.String;
     categoria: Schema.Attribute.String;
     contenido: Schema.Attribute.Text;
     createdAt: Schema.Attribute.DateTime;
@@ -1112,7 +1084,6 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::home.home': ApiHomeHome;
       'api::navmenu.navmenu': ApiNavmenuNavmenu;
-      'api::noticia.noticia': ApiNoticiaNoticia;
       'api::noticiascontenido.noticiascontenido': ApiNoticiascontenidoNoticiascontenido;
       'api::pilare.pilare': ApiPilarePilare;
       'plugin::content-releases.release': PluginContentReleasesRelease;

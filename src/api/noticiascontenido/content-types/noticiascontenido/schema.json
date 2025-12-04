@@ -4,7 +4,7 @@
   "info": {
     "singularName": "noticiascontenido",
     "pluralName": "noticiascontenidos",
-    "displayName": "noticiascontenido"
+    "displayName": "noticia"
   },
   "options": {
     "draftAndPublish": true
@@ -35,6 +35,9 @@
       "type": "text"
     },
     "key": {
+      "type": "string"
+    },
+    "boton": {
       "type": "string"
     }
   }
