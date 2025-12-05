@@ -86,6 +86,12 @@
     },
     "subtitleslider3": {
       "type": "string"
+    },
+    "footertitle": {
+      "type": "string"
+    },
+    "subtitlefooter": {
+      "type": "string"
     }
   }
 }

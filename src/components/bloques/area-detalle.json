@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_bloques_area_detalles",
+  "info": {
+    "displayName": "areaDetalle",
+    "icon": "alien"
+  },
+  "options": {},
+  "attributes": {
+    "nombre": {
+      "type": "string"
+    },
+    "descripcion": {
+      "type": "text"
+    },
+    "img": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  },
+  "config": {}
+}

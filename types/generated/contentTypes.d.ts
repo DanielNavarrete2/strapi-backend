@@ -445,6 +445,7 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    footertitle: Schema.Attribute.String;
     imagen: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
     imagen2: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -458,6 +459,7 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
     subtitle: Schema.Attribute.String & Schema.Attribute.Required;
     subtitle2: Schema.Attribute.String;
     subtitle3: Schema.Attribute.String;
+    subtitlefooter: Schema.Attribute.String;
     subtitleslider1: Schema.Attribute.String;
     subtitleslider2: Schema.Attribute.String;
     subtitleslider3: Schema.Attribute.String;
@@ -471,12 +473,12 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
   };
 }
 
-export interface ApiNoticiaNoticia extends Struct.SingleTypeSchema {
-  collectionName: 'noticias';
+export interface ApiNavNav extends Struct.SingleTypeSchema {
+  collectionName: 'navs';
   info: {
-    displayName: 'noticia';
-    pluralName: 'noticias';
-    singularName: 'noticia';
+    displayName: 'nav';
+    pluralName: 'navs';
+    singularName: 'nav';
   };
   options: {
     draftAndPublish: true;
@@ -486,14 +488,47 @@ export interface ApiNoticiaNoticia extends Struct.SingleTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::nav.nav'> &
+      Schema.Attribute.Private;
+    logo: Schema.Attribute.Media<'images'>;
+    nav: Schema.Attribute.Component<'navegador.menu', true>;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiNoticiascontenidoNoticiascontenido
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'noticiascontenidos';
+  info: {
+    displayName: 'noticia';
+    pluralName: 'noticiascontenidos';
+    singularName: 'noticiascontenido';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    boton: Schema.Attribute.String;
+    categoria: Schema.Attribute.String;
+    contenido: Schema.Attribute.Text;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    fecha: Schema.Attribute.Date;
+    imagen: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    key: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::noticia.noticia'
+      'api::noticiascontenido.noticiascontenido'
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    subtitulo: Schema.Attribute.String;
-    title: Schema.Attribute.String;
+    resumen: Schema.Attribute.Text;
+    titulo: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -511,14 +546,14 @@ export interface ApiPilarePilare extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    areas: Schema.Attribute.Component<'lista.areas', true>;
-    bajada: Schema.Attribute.String;
+    areas: Schema.Attribute.Component<'bloques.area-detalle', true>;
+    bajada: Schema.Attribute.Text;
     color: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     descripcion: Schema.Attribute.Text;
-    image: Schema.Attribute.Media<'files' | 'images'>;
+    imagen: Schema.Attribute.Media<'images'>;
     key: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -1045,7 +1080,8 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::home.home': ApiHomeHome;
-      'api::noticia.noticia': ApiNoticiaNoticia;
+      'api::nav.nav': ApiNavNav;
+      'api::noticiascontenido.noticiascontenido': ApiNoticiascontenidoNoticiascontenido;
       'api::pilare.pilare': ApiPilarePilare;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

@@ -1,22 +1,35 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
-export interface ListaAreas extends Struct.ComponentSchema {
-  collectionName: 'components_lista_areas';
+export interface BloquesAreaDetalle extends Struct.ComponentSchema {
+  collectionName: 'components_bloques_area_detalles';
   info: {
-    displayName: 'areas';
+    displayName: 'areaDetalle';
     icon: 'alien';
   };
   attributes: {
-    descripcion: Schema.Attribute.String;
+    descripcion: Schema.Attribute.Text;
     img: Schema.Attribute.Media<'images'>;
     nombre: Schema.Attribute.String;
+  };
+}
+
+export interface NavegadorMenu extends Struct.ComponentSchema {
+  collectionName: 'components_navegador_menus';
+  info: {
+    displayName: 'menu';
+    icon: 'alien';
+  };
+  attributes: {
+    link: Schema.Attribute.String;
+    name: Schema.Attribute.String;
   };
 }
 
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
-      'lista.areas': ListaAreas;
+      'bloques.area-detalle': BloquesAreaDetalle;
+      'navegador.menu': NavegadorMenu;
     }
   }
 }
