@@ -498,6 +498,34 @@ export interface ApiAdmisioneAdmisione extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiFaviconFavicon extends Struct.SingleTypeSchema {
+  collectionName: 'favicons';
+  info: {
+    displayName: 'favicon';
+    pluralName: 'favicons';
+    singularName: 'favicon';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    icono: Schema.Attribute.Media<'images'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::favicon.favicon'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiHomeHome extends Struct.SingleTypeSchema {
   collectionName: 'homes';
   info: {
@@ -1185,6 +1213,7 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::academico.academico': ApiAcademicoAcademico;
       'api::admisione.admisione': ApiAdmisioneAdmisione;
+      'api::favicon.favicon': ApiFaviconFavicon;
       'api::home.home': ApiHomeHome;
       'api::nav.nav': ApiNavNav;
       'api::nosotro.nosotro': ApiNosotroNosotro;
