@@ -3,26 +3,26 @@ Frontend
 
 Luciano Sthioul:
 
-Encargado de crear la sección Home, Blog y Nosotros.
+-Encargado de crear la sección Home, Blog y Nosotros.
 
-Creación de Nav y su JS.
+-Creación de Nav y su JS.
 
 Erwin González:
 
-Encargado de la sección Admisiones y Académico.
+-Encargado de la sección Admisiones y Académico.
 
-JS de admisiones.
+-JS de admisiones.
 
 Backend
 
 Daniel Navarrete:
 
-Creación de estructuras de Single Types y Collection Types.
+-Creación de estructuras de Single Types y Collection Types.
 
-Agregar artículos de Noticia.
+-Agregar artículos de Noticia.
 
 Sebastián Velásquez:
 
-Testeo del funcionamiento de las API
+-Testeo del funcionamiento de las API
 
-Agregar información en el Backend (Home, Académico).
+-Agregar información en el Backend (Home, Académico).
