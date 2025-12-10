@@ -1,19 +1,28 @@
 # Integrantes
 Frontend
 
--Luciano Sthioul:
-Encargado de crear la seccion Home,Blog y nosotros
-Creacion de Nav y su JS
+Luciano Sthioul:
 
--Erwin Gonzalez:
-Encargado de la seccion Admisiones y Academico
-JS de admisiones
+Encargado de crear la sección Home, Blog y Nosotros.
+
+Creación de Nav y su JS.
+
+Erwin González:
+
+Encargado de la sección Admisiones y Académico.
+
+JS de admisiones.
 
 Backend
 
--Daniel Navarrete:
-Creacion de Single Types y Collection Types
-Agregar articulos de Noticia
+Daniel Navarrete:
 
--Sebastian Velasquez:
-Agregar informacion en el Backend Home, Academico.
+Creación de estructuras de Single Types y Collection Types.
+
+Agregar artículos de Noticia.
+
+Sebastián Velásquez:
+
+Testeo del funcionamiento de las API
+
+Agregar información en el Backend (Home, Académico).
